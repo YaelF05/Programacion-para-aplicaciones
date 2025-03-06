@@ -8,23 +8,24 @@ public class Main {
         int num2 = 0;
         Scanner sc = new Scanner(System.in);
 
-
         System.out.print("Ingrese el simbolo de la operacion a relizar: ");
         String operacion = sc.next();
 
-
-        // manejo de entradas mediante try catch
-        try {
-            System.out.print("Ingresa el primer numero: ");
-            num1 = sc.nextInt();
-            System.out.print("Ingresa el segundo numero: ");
-            num2 = sc.nextInt();
-        }catch (java.util.InputMismatchException e) {
-            System.out.println("Entrada incorrecta");
+        // validacion del tipo de entrada mediante hasNextInt
+        System.out.print("Ingresa el primer numero: ");
+        if(!sc.hasNextInt()) {
+            System.out.println("La entrada debe ser un entero");
             System.exit(0);
         }
+        num1 = sc.nextInt();
+        System.out.print("Ingresa el segundo numero: ");
+        if(!sc.hasNextInt()) {
+            System.out.println("La entrada debe ser un entero");
+            System.exit(0);
+        }
+        num2 = sc.nextInt();
 
-        //switch para realizar las operaciones con
+        //switch para realizar las operaciones
         switch (operacion) {
             case "+":
                 resultado = num1 + num2;
@@ -36,15 +37,14 @@ public class Main {
                 resultado = num1 * num2;
                 break;
             case "/":
-                try {
-                    resultado = num1 / num2;
-                }catch(ArithmeticException e) {
+                if (num2 == 0){
                     System.out.println("No se puede dividir entre 0");
                     System.exit(0);
                 }
+                resultado = num1 / num2;
                 break;
             default:
-                System.out.println("Opcion incorrecta");
+                System.out.println("La operacion no existe");
                 System.exit(0);
                 break;
         }
