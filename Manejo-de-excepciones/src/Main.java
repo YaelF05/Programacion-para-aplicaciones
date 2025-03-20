@@ -3,6 +3,7 @@ public class Main {
 
         Suma suma = new Suma();
         Resta resta = new Resta();
+        Division division = new Division();
 
         suma.sumarNumeros(-1,1);
 
@@ -14,6 +15,12 @@ public class Main {
 
         try{
             Multiplicacion multiplicacion = null;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            division.metodoB();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
