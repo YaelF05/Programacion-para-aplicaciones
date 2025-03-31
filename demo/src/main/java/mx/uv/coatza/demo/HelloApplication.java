@@ -19,7 +19,7 @@ public class HelloApplication extends Application {
 
         Stage stage = new Stage();
         stage.setTitle("Second");
-        stage.setScene(new Scene(new Button("New stg"), 320, 240));
+        stage.setScene(new Scene(new Button("New stg"), 520, 240));
         stage.show();
 
     }
